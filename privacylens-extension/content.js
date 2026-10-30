@@ -71,3 +71,4 @@
     window.addEventListener('load', report);
   }
 })();
+
