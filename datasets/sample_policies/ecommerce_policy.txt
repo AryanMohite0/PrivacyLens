@@ -1,0 +1,16 @@
+PRIVACY NOTICE & DATA DISCLOSURE STATEMENT
+
+1. Data Collection
+When you place an order on our online store, we collect your name, shipping address, billing address, and payment confirmation details solely to process transactions and fulfill deliveries.
+
+2. Third-Party Service Providers
+We share transactional data with trusted shipping carriers (e.g. UPS, FedEx) and payment processing gateways (e.g. Stripe) strictly for order completion. We do not sell, rent, or trade your personal information to third parties for their independent commercial marketing.
+
+3. Analytics and Performance
+We use first-party aggregated analytics tools to monitor website performance, server response times, and page load optimization.
+
+4. California Privacy Rights (CCPA / CPRA)
+California residents have the right to request deletion, access, and correction of personal information. We do not sell personal information or share personal information for cross-context behavioral advertising.
+
+5. Data Retention
+Order history and invoice records are preserved for 7 years to comply with statutory accounting and tax regulations.

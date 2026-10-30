@@ -1,0 +1,31 @@
+[
+  {
+    "id": "eval-case-01",
+    "site": "shop.example.com",
+    "description": "E-commerce store with undisclosed Meta Pixel and Clarity session replay",
+    "policyRef": "datasets/sample_policies/ecommerce_policy.txt",
+    "observedTrackers": ["connect.facebook.net", "clarity.ms"],
+    "expectedFindings": [
+      {
+        "category": "reality_gap",
+        "status": "potentially_inconsistent",
+        "titleSubstring": "Undisclosed Third-Party Advertising"
+      },
+      {
+        "category": "fingerprinting",
+        "status": "potentially_inconsistent",
+        "titleSubstring": "Session Recording"
+      }
+    ],
+    "expectedMaxPrivacyScore": 65
+  },
+  {
+    "id": "eval-case-02",
+    "site": "privacy-docs.org",
+    "description": "Clean privacy-first site with zero third-party trackers or cookies",
+    "policyRef": "datasets/sample_policies/privacy_first_policy.txt",
+    "observedTrackers": [],
+    "expectedFindings": [],
+    "expectedMinPrivacyScore": 95
+  }
+]

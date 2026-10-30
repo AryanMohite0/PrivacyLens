@@ -1,0 +1,194 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-10-30T00:00:00Z",
+  "categories": [
+    "advertising",
+    "analytics",
+    "fingerprinting",
+    "social",
+    "customer_interaction",
+    "content_cdn"
+  ],
+  "trackers": [
+    {
+      "name": "Google Analytics",
+      "domains": ["google-analytics.com", "ssl.google-analytics.com", "analytics.google.com"],
+      "category": "analytics",
+      "owner": "Google",
+      "parentCompany": "Alphabet Inc.",
+      "description": "Web analytics service tracking user visits, page views, conversions, and user flows.",
+      "riskLevel": "medium"
+    },
+    {
+      "name": "Google Tag Manager",
+      "domains": ["googletagmanager.com"],
+      "category": "analytics",
+      "owner": "Google",
+      "parentCompany": "Alphabet Inc.",
+      "description": "Tag management container used to inject third-party scripts, advertising pixels, and tracking code dynamically.",
+      "riskLevel": "medium"
+    },
+    {
+      "name": "Google DoubleClick & AdServices",
+      "domains": ["doubleclick.net", "googleadservices.com", "googlesyndication.com", "adservice.google.com"],
+      "category": "advertising",
+      "owner": "Google Ads",
+      "parentCompany": "Alphabet Inc.",
+      "description": "Cross-site retargeting, conversion tracking, behavioral profiling, and targeted display advertising.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "Meta Pixel & Graph",
+      "domains": ["connect.facebook.net", "facebook.com", "facebook.net", "pixel.facebook.com"],
+      "category": "advertising",
+      "owner": "Meta",
+      "parentCompany": "Meta Platforms, Inc.",
+      "description": "Cross-site tracking pixel collecting visitor actions, purchase events, and syncing with Facebook user identities.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "TikTok Pixel",
+      "domains": ["analytics.tiktok.com", "byteoversea.com", "ibytedtos.com"],
+      "category": "advertising",
+      "owner": "TikTok",
+      "parentCompany": "ByteDance Ltd.",
+      "description": "Tracks website actions and matches browsing patterns with TikTok profiles for targeted campaigns.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "Microsoft Clarity",
+      "domains": ["clarity.ms"],
+      "category": "fingerprinting",
+      "owner": "Microsoft",
+      "parentCompany": "Microsoft Corp.",
+      "description": "Behavioral session recording capturing mouse movements, scroll tracking, rage clicks, and DOM snapshots.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "Microsoft Bing Ads & Xandr",
+      "domains": ["bat.bing.com", "adnxs.com", "xandr.com"],
+      "category": "advertising",
+      "owner": "Microsoft Advertising",
+      "parentCompany": "Microsoft Corp.",
+      "description": "Advertising platform and real-time bidding programmatic ad exchange.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "LinkedIn Insight Tag",
+      "domains": ["snap.licdn.com", "linkedin.com"],
+      "category": "advertising",
+      "owner": "LinkedIn",
+      "parentCompany": "Microsoft Corp.",
+      "description": "B2B conversion tracking and audience demographic matching.",
+      "riskLevel": "medium"
+    },
+    {
+      "name": "Amazon Advertising",
+      "domains": ["amazon-adsystem.com", "aax.amazon-adsystem.com", "fls-na.amazon.com"],
+      "category": "advertising",
+      "owner": "Amazon Ads",
+      "parentCompany": "Amazon.com, Inc.",
+      "description": "Ad retargeting network and sponsored product tracking.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "Criteo Retargeting",
+      "domains": ["criteo.com", "criteo.net", "emailretargeting.com"],
+      "category": "advertising",
+      "owner": "Criteo",
+      "parentCompany": "Criteo S.A.",
+      "description": "Dynamic personalized retargeting engine matching product catalog views across publisher sites.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "The Trade Desk",
+      "domains": ["adsrvr.org", "thetradedesk.com"],
+      "category": "advertising",
+      "owner": "The Trade Desk",
+      "parentCompany": "The Trade Desk, Inc.",
+      "description": "Demand-side platform (DSP) conducting programmatic real-time bidding and cross-device graph sync.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "LiveRamp Identity Graph",
+      "domains": ["rlcdn.com", "liveramp.com"],
+      "category": "advertising",
+      "owner": "LiveRamp",
+      "parentCompany": "LiveRamp Holdings, Inc.",
+      "description": "Identity resolution and customer data onboarding network connecting offline records with online cookies.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "Taboola",
+      "domains": ["taboola.com", "trc.taboola.com"],
+      "category": "advertising",
+      "owner": "Taboola",
+      "parentCompany": "Taboola, Inc.",
+      "description": "Content recommendation and native sponsored ad network.",
+      "riskLevel": "medium"
+    },
+    {
+      "name": "Hotjar Session Recorder",
+      "domains": ["hotjar.com", "script.hotjar.com", "vars.hotjar.com"],
+      "category": "fingerprinting",
+      "owner": "Hotjar",
+      "parentCompany": "Contentsquare",
+      "description": "Session playback, heatmaps, and keystroke/form interaction monitoring.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "FullStory",
+      "domains": ["fullstory.com", "rs.fullstory.com"],
+      "category": "fingerprinting",
+      "owner": "FullStory",
+      "parentCompany": "FullStory, Inc.",
+      "description": "High-fidelity digital experience recording capturing client-side DOM mutations and interactions.",
+      "riskLevel": "high"
+    },
+    {
+      "name": "FingerprintJS Pro",
+      "domains": ["fpjs.io", "fingerprintjs.com", "api.fpjs.io"],
+      "category": "fingerprinting",
+      "owner": "Fingerprint",
+      "parentCompany": "FingerprintJS, Inc.",
+      "description": "Hardware, browser, and canvas fingerprinting to uniquely identify browsers across sessions.",
+      "riskLevel": "critical"
+    },
+    {
+      "name": "Segment (Twilio)",
+      "domains": ["segment.io", "segment.com", "api.segment.io"],
+      "category": "analytics",
+      "owner": "Segment",
+      "parentCompany": "Twilio, Inc.",
+      "description": "Customer data platform routing event streams to multiple downstream marketing and analytics tools.",
+      "riskLevel": "medium"
+    },
+    {
+      "name": "Mixpanel",
+      "domains": ["mixpanel.com", "api.mixpanel.com"],
+      "category": "analytics",
+      "owner": "Mixpanel",
+      "parentCompany": "Mixpanel, Inc.",
+      "description": "Event-based product analytics platform.",
+      "riskLevel": "medium"
+    },
+    {
+      "name": "Datadog Real User Monitoring",
+      "domains": ["datadoghq.com", "browser-intake-datadoghq.com"],
+      "category": "analytics",
+      "owner": "Datadog",
+      "parentCompany": "Datadog, Inc.",
+      "description": "Performance, frontend error monitoring, and user session instrumentation.",
+      "riskLevel": "low"
+    },
+    {
+      "name": "Intercom Messenger",
+      "domains": ["intercom.io", "widget.intercom.io", "js.intercomcdn.com"],
+      "category": "customer_interaction",
+      "owner": "Intercom",
+      "parentCompany": "Intercom, Inc.",
+      "description": "Customer messaging widget with session tracking and identity linking.",
+      "riskLevel": "low"
+    }
+  ]
+}

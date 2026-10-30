@@ -1,0 +1,20 @@
+{
+  "name": "privacylens-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PRIVACYLENS — Open-source AI privacy inspector",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build:shared": "npm --workspace=@privacylens/shared run build",
+    "build:extension": "npm --workspace=@privacylens/extension run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vitest": "^2.1.8"
+  }
+}
