@@ -11,3 +11,4 @@ We do not use third-party analytics services (such as Google Analytics or Micros
 
 4. Data Sale & Third-Party Sharing
 We never sell, monetize, broker, or disclose your personal information to data brokers or advertising exchanges under any circumstances.
+

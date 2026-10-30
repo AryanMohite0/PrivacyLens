@@ -21,3 +21,4 @@ def analyze_policy(req: PolicyAnalysisRequest):
         claims=claims,
         total_claims=len(claims),
     )
+

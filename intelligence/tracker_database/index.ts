@@ -126,3 +126,4 @@ class TrackerDatabase {
 }
 
 export const trackerDatabase = new TrackerDatabase();
+

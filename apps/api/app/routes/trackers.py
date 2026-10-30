@@ -14,3 +14,4 @@ def get_tracker_catalog():
         with open(TRACKER_JSON_PATH, "r", encoding="utf-8") as f:
             return json.load(f)
     return {"trackers": [], "categories": []}
+

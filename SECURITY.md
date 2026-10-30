@@ -16,3 +16,4 @@ PRIVACYLENS is built around strict data minimization invariants:
 ## Reporting a Vulnerability
 
 If you discover a security or privacy vulnerability in PRIVACYLENS, please send an email to security@privacylens.org rather than filing a public issue. We will respond within 48 hours.
+

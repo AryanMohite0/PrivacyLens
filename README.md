@@ -128,9 +128,9 @@ API Documentation is available at: `http://localhost:8000/docs`
 
 ### Running the Web Intelligence Dashboard
 ```bash
-npm --workspace=@privacylens/dashboard run dev
+npm --workspace=@privacylens/dashboard run start -- -p 3001
 ```
-Open `http://localhost:3000` to view the Live Monitor, Tracker Intelligence Graph, Policy Analyzer, and Evidence Copilot.
+Open `http://localhost:3001` to view the Live Monitor, Tracker Intelligence Graph, Policy Analyzer, and Evidence Copilot.
 
 ---
 
@@ -147,3 +147,4 @@ Open `http://localhost:3000` to view the Live Monitor, Tracker Intelligence Grap
 ## 6. License
 
 Released under the [MIT License](LICENSE).
+

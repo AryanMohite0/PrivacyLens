@@ -113,3 +113,4 @@ class CopilotQueryResponse(BaseModel):
     citations: List[Dict[str, Any]]
     confidence: float
     requires_further_evidence: bool
+

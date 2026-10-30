@@ -118,3 +118,4 @@ def copilot_chat(req: CopilotQueryRequest, db: Session = Depends(get_db)):
         cookies=cookies,
         score=score,
     )
+

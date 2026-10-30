@@ -107,3 +107,4 @@ export function isThirdPartyDomain(siteDomain: string, targetDomain: string): bo
   if (!siteRoot || !targetRoot) return false;
   return siteRoot !== targetRoot;
 }
+

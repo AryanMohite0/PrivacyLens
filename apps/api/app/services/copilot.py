@@ -141,3 +141,4 @@ class PrivacyCopilot:
         )
 
 privacy_copilot = PrivacyCopilot()
+

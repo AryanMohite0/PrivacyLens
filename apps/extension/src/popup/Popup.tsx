@@ -147,7 +147,7 @@ export const Popup: React.FC = () => {
 
   const openDashboard = () => {
     const domain = data?.domain || 'overview';
-    const url = `http://localhost:3000/website/${domain}`;
+    const url = `http://localhost:3001/website/${domain}`;
     if (typeof chrome !== 'undefined' && chrome.tabs) {
       chrome.tabs.create({ url });
     } else {
@@ -379,3 +379,4 @@ export const Popup: React.FC = () => {
     </div>
   );
 };
+

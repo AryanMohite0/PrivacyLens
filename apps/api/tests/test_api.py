@@ -95,3 +95,4 @@ def test_scan_and_copilot_flow():
     copilot_data = copilot_res.json()
     assert "Privacy Assessment" in copilot_data["answer"]
     assert len(copilot_data["citations"]) > 0
+
