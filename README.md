@@ -24,6 +24,13 @@
 
 ## Visual Showcase
 
+### Live In-Browser Telemetry & Inspection
+<div align="center">
+  <img src="docs/assets/live_extension_inspection.jpg" width="100%" alt="PrivacyLens Live In-Browser Telemetry & Inspection" />
+  <p><em>Live PrivacyLens inspector running in Google Chrome — observing background network traffic, evaluating third-party tracking, and updating the dynamic Privacy Safety Score in real-time.</em></p>
+</div>
+<br/>
+
 <div align="center">
   <img src="docs/assets/preview_consumer_cards.png" width="48%" alt="PrivacyLens Consumer Cards" />
   <img src="docs/assets/screenshot_recorder_blocked.png" width="48%" alt="Recorder Neutralization" />

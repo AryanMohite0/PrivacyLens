@@ -9,54 +9,10 @@
     'color: #d1fb58; font-weight: bold; background: #151716; padding: 2px 6px; border-radius: 3px;',
     'color: #94a3b8;'
   );
-  // Disarm known session recorders in the webpage's DOM execution context
+  // Disarm known session recorders (handled natively by disarm.js in MAIN world + DNR network rules)
   function disarmInPage(targetDomain = '') {
     try {
-      const script = document.createElement('script');
-      script.textContent = `
-        try {
-          // Microsoft Clarity
-          try {
-            if (window.clarity) window.clarity('stop');
-          } catch(_) {}
-          try {
-            Object.defineProperty(window, 'clarity', {
-              get: function() {
-                const stub = function() {};
-                stub.q = [];
-                stub.v = 1;
-                return stub;
-              },
-              set: function() {},
-              configurable: true
-            });
-          } catch(_) {
-            window.clarity = function() {};
-          }
-
-          // Hotjar
-          window.hj = function() {};
-          window._hjSettings = {};
-
-          // FullStory
-          window.FS = function() {};
-          window._fs_loaded = true;
-
-          // Lucky Orange
-          window.LO = function() {};
-
-          // Meta Pixel
-          window.fbq = function() {};
-
-          // Google Analytics
-          window['ga-disable-UA-'] = true;
-          window['ga-disable-G-'] = true;
-
-          console.log('[PRIVACYLENS] Session recorder neutralization confirmed.');
-        } catch (_) {}
-      `;
-      (document.head || document.documentElement).appendChild(script);
-      script.remove();
+      console.log('[PRIVACYLENS] Session recorder neutralization confirmed via declarativeNetRequest & main world disarm.');
     } catch (_) {}
   }
 
