@@ -1,7 +1,15 @@
-# PRIVACYLENS
+<div align="center">
+  <a href="https://github.com/AryanMohite0/PrivacyLens">
+    <img src="docs/assets/privacy_lens_header.svg" width="100%" alt="PRIVACYLENS — AI Privacy Inspector & Tracker Shield" />
+  </a>
+</div>
 
-> **See what websites don't tell you.**
-> Evidence-backed, open-source AI privacy inspector comparing actual browser behavior against published privacy policies.
+<p align="center">
+  <strong>See what websites don't tell you.</strong><br/>
+  Evidence-backed, open-source AI privacy inspector comparing actual browser behavior against published privacy policies.
+</p>
+
+<div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
 [![Manifest V3](https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-blue.svg)](privacylens-extension)
@@ -9,6 +17,8 @@
 [![Gemma 4](https://img.shields.io/badge/Policy%20AI-Gemma%204-purple.svg)](infrastructure/docker/Modelfile.gemma4)
 [![Zeek Protocol](https://img.shields.io/badge/Network%20Auditing-Zeek%20Wire%20Logs-orange.svg)](infrastructure/zeek/privacylens.zeek)
 [![STGNN](https://img.shields.io/badge/Evasive%20Tracking-STGNN%20Engine-red.svg)](apps/api/app/services/stgnn_engine.py)
+
+</div>
 
 ---
 
@@ -26,7 +36,10 @@
 
 ---
 
-## 1. Product Vision & Architecture
+<div align="center">
+  <img src="docs/assets/privacy_architecture_heading.svg" width="100%" alt="The Privacy Reality Gap & Architecture" />
+</div>
+<br/>
 
 Ordinary privacy tools merely summarize lengthy privacy policies without knowing if the website actually follows them. **PRIVACYLENS** is built differently: it observes a website's live client-side and network wire behavior, extracts structured commitments with **Gemma 4**, validates evasive graph exfiltration via **STGNN**, and identifies the **Privacy Reality Gap** with mathematically grounded evidence.
 
@@ -87,7 +100,10 @@ PRIVACYLENS/
 
 ---
 
-## 3. Mathematical Scoring Engine
+<div align="center">
+  <img src="docs/assets/privacy_scoring_heading.svg" width="100%" alt="Mathematical Privacy Safety Scoring Engine" />
+</div>
+<br/>
 
 The privacy assessment is calculated through a calibrated, deterministic formula:
 

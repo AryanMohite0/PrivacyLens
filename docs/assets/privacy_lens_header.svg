@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 260" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Radial Glow -->
+    <radialGradient id="bgGlow" cx="20%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#18261e" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#0f1612" stop-opacity="0.98" />
+      <stop offset="100%" stop-color="#080b09" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Radar Sweep Gradient -->
+    <linearGradient id="radarSweep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d1fb58" stop-opacity="0.6" />
+      <stop offset="40%" stop-color="#d1fb58" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#d1fb58" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Text Shimmer Gradient -->
+    <linearGradient id="lensShimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d1fb58">
+        <animate attributeName="stop-color" values="#d1fb58;#ffffff;#a3e635;#d1fb58" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#ffffff">
+        <animate attributeName="stop-color" values="#ffffff;#a3e635;#d1fb58;#ffffff" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#a3e635">
+        <animate attributeName="stop-color" values="#a3e635;#d1fb58;#ffffff;#a3e635" dur="4s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Border Glow Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d1fb58" stop-opacity="0.8" />
+      <stop offset="35%" stop-color="#22c55e" stop-opacity="0.3" />
+      <stop offset="70%" stop-color="#ff8e77" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#d1fb58" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Neon Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Cyber Grid Pattern -->
+    <pattern id="cyberGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#223328" stroke-width="0.5" stroke-opacity="0.25" />
+      <circle cx="30" cy="0" r="1" fill="#d1fb58" fill-opacity="0.2" />
+    </pattern>
+
+    <style>
+      .radar-spin {
+        transform-origin: 100px 125px;
+        animation: rotateRadar 6s linear infinite;
+      }
+      .ring-pulse-1 {
+        transform-origin: 100px 125px;
+        animation: pulseRing 3s ease-in-out infinite;
+      }
+      .ring-pulse-2 {
+        transform-origin: 100px 125px;
+        animation: pulseRing 3s ease-in-out infinite 1.5s;
+      }
+      .laser-beam {
+        animation: scanAcross 5s ease-in-out infinite;
+      }
+      .live-dot {
+        animation: blinkLed 1.4s ease-in-out infinite;
+      }
+      .floating-title {
+        animation: subtleFloat 4s ease-in-out infinite;
+      }
+      .circuit-line {
+        stroke-dasharray: 6 6;
+        animation: dashFlow 20s linear infinite;
+      }
+      .pill-badge {
+        transition: all 0.3s ease;
+      }
+      @keyframes rotateRadar {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes pulseRing {
+        0%, 100% { transform: scale(1); opacity: 0.3; }
+        50% { transform: scale(1.08); opacity: 0.7; }
+      }
+      @keyframes scanAcross {
+        0% { transform: translateX(-400px); opacity: 0; }
+        15% { opacity: 0.7; }
+        85% { opacity: 0.7; }
+        100% { transform: translateX(960px); opacity: 0; }
+      }
+      @keyframes blinkLed {
+        0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px #d1fb58); }
+        50% { opacity: 0.2; filter: none; }
+      }
+      @keyframes subtleFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-2px); }
+      }
+      @keyframes dashFlow {
+        to { stroke-dashoffset: -300; }
+      }
+    </style>
+  </defs>
+
+  <!-- Container Box with Rounded Obsidian Border -->
+  <rect x="4" y="4" width="912" height="252" rx="16" fill="url(#bgGlow)" />
+  <rect x="4" y="4" width="912" height="252" rx="16" fill="url(#cyberGrid)" />
+
+  <!-- Animated Glowing Outer Border -->
+  <rect x="4" y="4" width="912" height="252" rx="16" fill="none" stroke="url(#borderGrad)" stroke-width="2" class="circuit-line" />
+
+  <!-- Scanning Laser Beam -->
+  <g class="laser-beam">
+    <line x1="0" y1="4" x2="0" y2="256" stroke="#d1fb58" stroke-width="2" opacity="0.6" filter="url(#glow)" />
+    <rect x="-30" y="4" width="30" height="252" fill="url(#radarSweep)" opacity="0.15" />
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- LEFT: RADAR PRIVACY SHIELD ICON (Cybernetic HUD Lens)     -->
+  <!-- ======================================================== -->
+  <g id="radarGroup">
+    <!-- Outer Decorative Concentric Rings -->
+    <circle cx="100" cy="125" r="70" fill="none" stroke="#2a3f32" stroke-width="1.2" stroke-dasharray="4 6" />
+    <circle cx="100" cy="125" r="58" fill="none" stroke="#d1fb58" stroke-width="1" stroke-opacity="0.4" class="ring-pulse-1" />
+    <circle cx="100" cy="125" r="46" fill="none" stroke="#22c55e" stroke-width="1.2" stroke-dasharray="8 4" stroke-opacity="0.5" class="ring-pulse-2" />
+    <circle cx="100" cy="125" r="34" fill="#0d1410" stroke="#d1fb58" stroke-width="1.5" stroke-opacity="0.8" />
+
+    <!-- Crosshair HUD Lines -->
+    <line x1="20" y1="125" x2="180" y2="125" stroke="#334e3e" stroke-width="0.8" stroke-dasharray="2 4" />
+    <line x1="100" y1="45" x2="100" y2="205" stroke="#334e3e" stroke-width="0.8" stroke-dasharray="2 4" />
+
+    <!-- Rotating Radar Sweep Cone -->
+    <g class="radar-spin">
+      <path d="M 100 125 L 100 67 A 58 58 0 0 1 158 125 Z" fill="url(#radarSweep)" />
+      <line x1="100" y1="125" x2="158" y2="125" stroke="#d1fb58" stroke-width="2" filter="url(#softGlow)" />
+    </g>
+
+    <!-- Center Shield & Iris Lock -->
+    <path d="M 100 106 L 115 113 V 127 C 115 137 108 144 100 147 C 92 144 85 137 85 127 V 113 Z"
+          fill="#142119" stroke="#d1fb58" stroke-width="2" filter="url(#softGlow)" />
+    
+    <!-- Central Pupil Glow -->
+    <circle cx="100" cy="126" r="4.5" fill="#d1fb58" filter="url(#glow)">
+      <animate attributeName="r" values="3.5;5;3.5" dur="2s" repeatCount="indefinite" />
+      <animate attributeName="fill" values="#d1fb58;#ffffff;#d1fb58" dur="2s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- CENTER / RIGHT: PRIVACYLENS TITLE & CYBERNETIC BADGES    -->
+  <!-- ======================================================== -->
+  <g class="floating-title">
+    <!-- Live Status Pill Top Bar -->
+    <g transform="translate(205, 36)">
+      <rect x="0" y="0" width="310" height="24" rx="12" fill="#141c17" stroke="#25382c" stroke-width="1" />
+      <circle cx="14" cy="12" r="4" fill="#d1fb58" class="live-dot" />
+      <text x="26" y="16" fill="#d1fb58" font-family="'Segoe UI', -apple-system, sans-serif" font-size="10.5" font-weight="800" letter-spacing="1.2">
+        ● LIVE CLIENT-SIDE SURVEILLANCE RADAR
+      </text>
+    </g>
+
+    <!-- Main Header Typography: PRIVACY LENS -->
+    <g transform="translate(205, 105)">
+      <text x="0" y="0" font-family="'Georgia', 'Times New Roman', -apple-system, serif" font-size="52" font-weight="900" fill="#ffffff" letter-spacing="2">
+        PRIVACY<tspan fill="url(#lensShimmer)" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="900" filter="url(#softGlow)">LENS</tspan>
+      </text>
+    </g>
+
+    <!-- Tagline: Plain English Evidence Description -->
+    <text x="206" y="138" fill="#94a3b8" font-family="'Segoe UI', -apple-system, sans-serif" font-size="14.5" font-weight="500" letter-spacing="0.3">
+      Real-Time Website Behavioral Inspector <tspan fill="#d1fb58">•</tspan> Policy Reality Gap <tspan fill="#d1fb58">•</tspan> Active 1-Click Shield
+    </text>
+
+    <!-- Status Metric Feature Pills -->
+    <g transform="translate(205, 168)">
+      <!-- Pill 1: Gemma 4 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="158" height="28" rx="6" fill="#131c17" stroke="#2d4233" stroke-width="1" />
+        <circle cx="12" cy="14" r="3" fill="#a78bfa" />
+        <text x="22" y="18" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="11" font-weight="700">Gemma 4 Policy AI</text>
+      </g>
+
+      <!-- Pill 2: Zeek Wire Sniffer -->
+      <g transform="translate(168, 0)">
+        <rect x="0" y="0" width="160" height="28" rx="6" fill="#131c17" stroke="#2d4233" stroke-width="1" />
+        <circle cx="12" cy="14" r="3" fill="#fb923c" />
+        <text x="22" y="18" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="11" font-weight="700">Zeek Wire Protocol</text>
+      </g>
+
+      <!-- Pill 3: STGNN Engine -->
+      <g transform="translate(338, 0)">
+        <rect x="0" y="0" width="170" height="28" rx="6" fill="#131c17" stroke="#2d4233" stroke-width="1" />
+        <circle cx="12" cy="14" r="3" fill="#f87171" />
+        <text x="22" y="18" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="11" font-weight="700">STGNN Graph Engine</text>
+      </g>
+
+      <!-- Pill 4: 1-Click DNR Shield -->
+      <g transform="translate(518, 0)">
+        <rect x="0" y="0" width="168" height="28" rx="6" fill="#131c17" stroke="#38543f" stroke-width="1" />
+        <circle cx="12" cy="14" r="3" fill="#d1fb58" class="live-dot" />
+        <text x="22" y="18" fill="#d1fb58" font-family="-apple-system, sans-serif" font-size="11" font-weight="800">1-Click DNR Blocker</text>
+      </g>
+    </g>
+
+    <!-- Bottom Telemetry HUD Line -->
+    <g transform="translate(205, 218)">
+      <line x1="0" y1="0" x2="685" y2="0" stroke="#1f2c24" stroke-width="1" />
+      <circle cx="0" cy="0" r="2" fill="#d1fb58" opacity="0.6" />
+      <circle cx="685" cy="0" r="2" fill="#d1fb58" opacity="0.6" />
+      <text x="0" y="16" fill="#64748b" font-family="ui-monospace, monospace" font-size="10" letter-spacing="0.5">
+        SYS.STATE // ZERO TELEMETRY LEAKS • DNR DYNAMIC RULES ACTIVE • AUTONOMOUS PRIVACY SCORE
+      </text>
+    </g>
+  </g>
+</svg>
