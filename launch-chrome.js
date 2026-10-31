@@ -34,10 +34,19 @@ async function launchChrome() {
   });
 
   // Detect extension ID and open popup
-  const workers = context.serviceWorkers();
+  let extWorker = context.serviceWorkers().find(w => w.url().startsWith('chrome-extension://'));
+  if (!extWorker) {
+    // Wait up to 5 seconds for service worker
+    try {
+      extWorker = await context.waitForEvent('serviceworker', {
+        predicate: w => w.url().startsWith('chrome-extension://'),
+        timeout: 5000
+      });
+    } catch (_) {}
+  }
   let extId = null;
-  if (workers.length > 0) {
-    extId = workers[0].url().split('/')[2];
+  if (extWorker) {
+    extId = extWorker.url().split('/')[2];
     console.log(`[PRIVACYLENS] Extension ID in Chrome: ${extId}`);
   }
 
@@ -45,7 +54,7 @@ async function launchChrome() {
     const popupPage = await context.newPage();
     const popupUrl = `chrome-extension://${extId}/popup.html`;
     await popupPage.goto(popupUrl).catch(() => {});
-    console.log(`[PRIVACYLENS] Opened Extension UI at ${popupUrl}`);
+    console.log(`[PRIVACYLENS] Opened Extension UI tab at: ${popupUrl}`);
   }
 
   console.log('[PRIVACYLENS] Google Chrome is now actively running with PRIVACYLENS pre-installed!');

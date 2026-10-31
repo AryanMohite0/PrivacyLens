@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pace — Shopping rewards</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+<div class="popup">
+  <header class="topbar"><a class="brand" href="#" aria-label="Pace home"><svg viewBox="0 0 38 30" aria-hidden="true"><path d="M9 3H34L28 13H18L9 27H0L15 3ZM19 7L16 12H26L29 7Z" fill="currentColor"/></svg><span>pace<span class="brand-dot">.</span></span></a><div class="top-actions"><span class="live-dot"></span><span class="live-label">DEMO</span><button class="icon-button" id="settings" aria-label="Settings" title="Settings"><svg viewBox="0 0 24 24"><path d="m10 3-1 3-3 1-3 3 2 2-1 3 3 3 3-1 2 2 3-1 1-3 3-1 1-3-2-2 1-3-3-3-3 1-2-2Z"/><circle cx="12" cy="12" r="3"/></svg></button></div></header>
+  <main id="dashboard">
+    <div class="intro"><div><span class="eyebrow">THE EVERYDAY EDIT / 01</span><h1>Good finds.<br><em>Great rewards.</em></h1></div><span class="season">↗</span></div>
+    <section class="balance"><div class="balance-top"><span>YOUR REWARD POINTS</span><span class="pill">STARTER</span></div><div class="balance-value"><span id="balance">1,240</span><span class="point-symbol">P</span><svg viewBox="0 0 100 40" class="spark"><path d="m2 35 12-8 10 4 15-16 12 5 14-10 12 4 20-12"/></svg></div><div class="balance-bottom"><span><i>↗</i> +240 this week</span><span>Next level <strong>2,000 P</strong></span></div><div class="progress"><span></span></div></section>
+    <div class="section-title"><h2>In the spotlight</h2><span>01 / 03</span></div>
+    <section class="brand-card"><div class="nike-mark"><strong class="store-logo">SONY</strong></div><div class="brand-info"><h3>Sony <span class="verified">✓</span></h3><span>20.5k happy shoppers</span></div><button id="follow" class="follow-button">Follow <span>+</span></button></section>
+    <div class="section-title task-title"><h2>Your next reward</h2><span><b id="claimed">0</b> / 3 completed</span></div>
+    <nav class="tabs" aria-label="Reward categories"><button class="tab active" data-tab="all">For you <span>3</span></button><button class="tab" data-tab="saved">Saved <span id="saved-count">0</span></button><button class="tab" data-tab="active">Activated <span id="active-count">0</span></button></nav>
+    <div id="tasks"></div>
+    <button id="more" class="more-button">Explore more rewards <span>↗</span></button>
+    <div class="activity"><span class="activity-dot"></span><span>Good things come with rewards.</span><svg viewBox="0 0 24 24"><path d="m13 2-8 12h6l-1 8 9-13h-7Z"/></svg></div>
+  </main>
+  <section id="settings-panel" hidden><div class="settings-heading"><button id="back" class="icon-button" aria-label="Back to rewards">←</button><h1>Settings</h1></div><div class="setting-row"><div><h3>Reward reminders</h3><p>Preference only in this demo</p></div><button id="notifications" class="switch" role="switch" aria-checked="true" aria-label="Reward reminders"><span></span></button></div><div class="setting-row"><div><h3>Reset demo</h3><p>Clear your saved and active rewards</p></div><button id="reset" class="small-button">Reset</button></div><p class="settings-note">Pace v1.0.0 · Frontend demo<br>No purchases, accounts, or cashback are connected.</p></section>
+  <footer><span class="footer-brand">PACE CLUB</span><span>MAKE EVERY FIND COUNT <span class="footer-arrow">↗</span></span></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+</div>
+<script src="popup.js"></script>
+</body></html>

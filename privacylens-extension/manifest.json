@@ -1,13 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "PRIVACYLENS — AI Privacy Inspector",
+  "name": "PRIVACYLENS - AI Privacy Inspector",
   "version": "1.0.0",
-  "description": "See what websites don't tell you. Real-time website behavioral monitoring, tracker intelligence, and explainable privacy scoring.",
+  "description": "See what websites do not tell you. Real-time website behavioral monitoring, tracker intelligence, and privacy scoring.",
   "permissions": [
     "webRequest",
     "cookies",
     "storage",
     "activeTab",
+    "tabs",
     "scripting",
     "declarativeNetRequest"
   ],
@@ -25,7 +26,7 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
-      "run_at": "document_idle"
+      "run_at": "document_start"
     }
   ],
   "icons": {
@@ -34,4 +35,3 @@
     "128": "icons/icon128.png"
   }
 }
-

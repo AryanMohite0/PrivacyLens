@@ -1,9 +1,93 @@
 /**
  * PRIVACYLENS — Content Script
- * Safe isolated client-side storage, cookie, and policy link inspector.
+ * Safe client-side storage, cookie, and policy link inspector with active recorder disarm.
  */
 
 (function () {
+  console.log(
+    '%c[PRIVACYLENS CONTENT]%c Script active on: ' + window.location.hostname + ' | DOM protection traps armed.',
+    'color: #d1fb58; font-weight: bold; background: #151716; padding: 2px 6px; border-radius: 3px;',
+    'color: #94a3b8;'
+  );
+  // Disarm known session recorders in the webpage's DOM execution context
+  function disarmInPage(targetDomain = '') {
+    try {
+      const script = document.createElement('script');
+      script.textContent = `
+        try {
+          // Microsoft Clarity
+          try {
+            if (window.clarity) window.clarity('stop');
+          } catch(_) {}
+          try {
+            Object.defineProperty(window, 'clarity', {
+              get: function() {
+                const stub = function() {};
+                stub.q = [];
+                stub.v = 1;
+                return stub;
+              },
+              set: function() {},
+              configurable: true
+            });
+          } catch(_) {
+            window.clarity = function() {};
+          }
+
+          // Hotjar
+          window.hj = function() {};
+          window._hjSettings = {};
+
+          // FullStory
+          window.FS = function() {};
+          window._fs_loaded = true;
+
+          // Lucky Orange
+          window.LO = function() {};
+
+          // Meta Pixel
+          window.fbq = function() {};
+
+          // Google Analytics
+          window['ga-disable-UA-'] = true;
+          window['ga-disable-G-'] = true;
+
+          console.log('[PRIVACYLENS] Session recorder neutralization confirmed.');
+        } catch (_) {}
+      `;
+      (document.head || document.documentElement).appendChild(script);
+      script.remove();
+    } catch (_) {}
+  }
+
+  // Pre-emptively disarm on load if user has previously blocked any recorder
+  if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+    chrome.storage.local.get(['blockedDomains'], (res) => {
+      const blocked = res.blockedDomains || [];
+      if (
+        blocked.some((d) =>
+          d.includes('clarity') || d.includes('hotjar') || d.includes('fullstory') || d.includes('luckyorange')
+        )
+      ) {
+        disarmInPage();
+      }
+    });
+  }
+
+  // Listen for real-time disarm messages from popup / background
+  if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.onMessage) {
+    chrome.runtime.onMessage.addListener((msg) => {
+      if (msg.type === 'DISARM_DOM_RECORDER') {
+        console.log(
+          `%c[PRIVACYLENS CONTENT]%c 🛑 RECORDER BLOCKED on this site: "${msg.domain || 'all'}"! Neutralizing in-memory DOM recorder traps (window.clarity, window.hj, window.FS).`,
+          'color: #ff8e77; font-weight: bold; background: #202321; padding: 3px 8px; border-radius: 3px;',
+          'color: #cbd5e1;'
+        );
+        disarmInPage(msg.domain);
+      }
+    });
+  }
+
   function inspectLocalStorage() {
     const keys = [];
     try {
@@ -58,11 +142,13 @@
     const storage = inspectLocalStorage();
     const policyUrl = discoverPolicyUrl();
 
-    chrome.runtime.sendMessage({
-      type: 'CONTENT_OBSERVATION',
-      storage,
-      policyUrl,
-    });
+    if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
+      chrome.runtime.sendMessage({
+        type: 'CONTENT_OBSERVATION',
+        storage,
+        policyUrl,
+      }).catch(() => {});
+    }
   }
 
   if (document.readyState === 'complete') {
@@ -71,4 +157,3 @@
     window.addEventListener('load', report);
   }
 })();
-

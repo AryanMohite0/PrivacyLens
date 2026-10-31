@@ -10,180 +10,170 @@
 <div class="popup">
   <!-- Top Bar -->
   <header class="topbar">
-    <div class="brand">
-      <svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true">
-        <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" fill="none" stroke="currentColor" stroke-width="2"/>
-        <circle cx="12" cy="12" r="3" fill="currentColor"/>
+    <a class="brand" href="#" aria-label="PRIVACYLENS home">
+      <svg viewBox="0 0 38 30" aria-hidden="true">
+        <path d="M9 3H34L28 13H18L9 27H0L15 3ZM19 7L16 12H26L29 7Z" fill="currentColor"/>
       </svg>
-      <span>PRIVACYLENS<span class="brand-dot">.</span></span>
-    </div>
-
+      <span>privacylens<span class="brand-dot">.</span></span>
+    </a>
     <div class="top-actions">
       <span class="live-dot"></span>
       <span class="live-label">LIVE</span>
-      <button id="guard-toggle" class="guard-pill" title="Toggle Tracker Blocking">GUARD OFF</button>
-      <button id="rescan-btn" class="icon-button" title="Rescan page">
-        <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+      <button class="icon-button" id="settings" aria-label="Settings" title="Settings">
+        <svg viewBox="0 0 24 24"><path d="m10 3-1 3-3 1-3 3 2 2-1 3 3 3 3-1 2 2 3-1 1-3 3-1 1-3-2-2 1-3-3-3-3 1-2-2Z"/><circle cx="12" cy="12" r="3"/></svg>
       </button>
     </div>
   </header>
 
-  <!-- Domain Subheader -->
-  <div class="domain-bar">
-    <div class="domain-info">
-      <svg viewBox="0 0 24 24" class="lock-icon"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      <span id="active-domain">Detecting page...</span>
+  <!-- Main Dashboard View -->
+  <main id="dashboard">
+    <!-- Intro Headline -->
+    <div class="intro">
+      <div>
+        <span class="eyebrow">LIVE PRIVACY PROTECTION</span>
+        <h1>See what websites<br><em>don&apos;t tell you.</em></h1>
+      </div>
+      <span class="season">↗</span>
     </div>
-    <span id="requests-badge" class="badge">0 requests</span>
-  </div>
 
-  <!-- Navigation Tabs -->
-  <nav class="nav-tabs">
-    <button class="nav-tab active" data-tab="overview">Overview</button>
-    <button class="nav-tab" data-tab="stream">Live Stream <span id="stream-count">0</span></button>
-    <button class="nav-tab" data-tab="trackers">Trackers <span id="trackers-count">0</span></button>
-    <button class="nav-tab" data-tab="gap">Reality Gap</button>
-    <button class="nav-tab" data-tab="copilot">Copilot</button>
-    <button class="nav-tab" data-tab="vault">Vault</button>
-  </nav>
-
-  <!-- Tab Panels -->
-  <main id="main-content">
-    <!-- PANEL 1: OVERVIEW -->
-    <section id="panel-overview" class="tab-panel active">
-      <!-- Score Card -->
-      <div class="score-card">
-        <div class="score-top">
-          <span class="score-label">CALCULATED PRIVACY SCORE</span>
-          <span id="grade-badge" class="grade-badge">Grade D</span>
-        </div>
-        <div class="score-value">
-          <span id="score-number">--</span>
-          <span class="score-max">/100</span>
-          <svg viewBox="0 0 100 40" class="sparkline"><path d="M2 35 15 22 28 28 42 12 55 18 68 8 82 14 98 4"/></svg>
-        </div>
-        <div class="score-formula">R = 0.35T + 0.25C + 0.15P + 0.25D</div>
-        <div class="score-progress"><span id="score-bar" style="width: 50%;"></span></div>
+    <!-- Hero Balance / Privacy Score Card -->
+    <section class="balance">
+      <div class="balance-top">
+        <span>PRIVACY SAFETY SCORE</span>
+        <span id="grade-pill" class="pill">GRADE D</span>
       </div>
-
-      <!-- Multi-Vector KPI Grid -->
-      <div class="vector-grid">
-        <div class="vector-card">
-          <span class="vector-title">Trackers (T)</span>
-          <span id="t-score" class="vector-val val-danger">0</span>
-        </div>
-        <div class="vector-card">
-          <span class="vector-title">Cookies (C)</span>
-          <span id="c-score" class="vector-val val-warning">0</span>
-        </div>
-        <div class="vector-card">
-          <span class="vector-title">Perms (P)</span>
-          <span id="p-score" class="vector-val val-safe">0</span>
-        </div>
-        <div class="vector-card">
-          <span class="vector-title">Reality (D)</span>
-          <span id="d-score" class="vector-val val-warning">0</span>
-        </div>
+      <div class="balance-value">
+        <span id="balance">50</span>
+        <span class="point-symbol">P</span>
+        <svg viewBox="0 0 100 40" class="spark">
+          <path d="m2 35 12-8 10 4 15-16 12 5 14-10 12 4 20-12"/>
+        </svg>
       </div>
-
-      <!-- Top Findings -->
-      <div class="section-heading">
-        <h3>Reality Gap Findings</h3>
-        <span id="findings-count">0 observed</span>
+      <div class="balance-bottom">
+        <span id="tracker-summary-stat"><i>🛡️</i> <strong id="tracker-count-txt">3 companies</strong> tracking you</span>
+        <span id="safety-level-label">Safety: <strong>High Tracking Risk</strong></span>
       </div>
-      <div id="findings-list" class="findings-list">
-        <div class="empty-state">No critical surveillance anomalies captured.</div>
-      </div>
+      <div class="progress"><span id="score-progress" style="width: 50%;"></span></div>
     </section>
 
-    <!-- PANEL 2: LIVE STREAM -->
-    <section id="panel-stream" class="tab-panel">
-      <div class="stream-controls">
-        <div class="stream-filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="advertising">Ads</button>
-          <button class="filter-btn" data-filter="fingerprinting">Replay</button>
-          <button class="filter-btn" data-filter="analytics">Analytics</button>
+    <!-- Inspected Target Spotlight Card -->
+    <div class="section-title">
+      <h2>Current website</h2>
+      <span id="events-count-stat">0 activities</span>
+    </div>
+    <section class="brand-card">
+      <div class="nike-mark"><strong id="site-logo" class="store-logo">WEB</strong></div>
+      <div class="brand-info">
+        <h3><span id="site-name">Scanning site...</span> <span class="verified">✓</span></h3>
+        <span id="site-sub">Checking for trackers</span>
+      </div>
+      <button id="guard-btn" class="follow-button">Guard <span>+</span></button>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="section-title task-title">
+      <h2>What this site is doing</h2>
+      <span><b id="hazard-count">0</b> alerts</span>
+    </div>
+    <nav class="tabs" aria-label="Privacy categories">
+      <button class="tab active" data-tab="all">All <span id="tab-all-count">0</span></button>
+      <button class="tab" data-tab="trackers">Trackers <span id="tab-trackers-count">0</span></button>
+      <button class="tab" data-tab="gap">Hidden Tracking <span id="tab-gap-count">0</span></button>
+      <button class="tab" data-tab="copilot">Copilot</button>
+    </nav>
+
+    <!-- Dynamic Findings List -->
+    <div id="tasks"></div>
+
+    <!-- Explore More Live Request Stream Button -->
+    <button id="more" class="more-button">View background network activity <span>↗</span></button>
+
+    <!-- Live Request Stream Drawer (Shown when expanded) -->
+    <div id="stream-drawer" class="stream-drawer" hidden>
+      <div class="stream-header">
+        <span class="eyebrow">LIVE BACKGROUND CONNECTIONS</span>
+        <button id="close-stream" class="small-button">Close ✕</button>
+      </div>
+      <div id="stream-items" class="stream-items"></div>
+    </div>
+
+    <!-- In-Extension Copilot Drawer (Shown when Copilot tab active) -->
+    <div id="copilot-drawer" class="copilot-drawer" hidden>
+      <div class="copilot-msgs" id="copilot-msgs">
+        <div class="chat-bubble assistant">
+          Hello! I&apos;m your <strong>Privacy Copilot</strong>. I watch what this website is doing in the background and explain everything in simple, plain English. What would you like to know?
         </div>
-        <input type="text" id="stream-search" placeholder="Search host..." class="stream-search-input">
       </div>
-      <div id="stream-log" class="stream-log"></div>
-    </section>
+      <div class="copilot-chips">
+        <button class="chip" data-q="Is it safe to shop here?">Safe to shop?</button>
+        <button class="chip" data-q="Can they see my passwords or card?">See passwords?</button>
+        <button class="chip" data-q="Who is tracking me?">Who&apos;s tracking?</button>
+        <button class="chip" data-q="How do I stop them?">Stop tracking</button>
+      </div>
+      <form id="copilot-form" class="copilot-input-row">
+        <input type="text" id="copilot-input" placeholder="Ask about safety, tracking, or passwords..." autocomplete="off">
+        <button type="submit" class="send-btn">Ask ↗</button>
+      </form>
+    </div>
 
-    <!-- PANEL 3: TRACKER INTELLIGENCE -->
-    <section id="panel-trackers" class="tab-panel">
-      <div class="intel-intro">
-        <h3>Observed Data Flows</h3>
-        <p>Verified third-party entities communicating with this website.</p>
-      </div>
-      <div id="trackers-tree" class="trackers-tree"></div>
-    </section>
-
-    <!-- PANEL 4: REALITY GAP & POLICY -->
-    <section id="panel-gap" class="tab-panel">
-      <div class="policy-card">
-        <div class="policy-top">
-          <span class="policy-label">AUTODETECTED PRIVACY DISCLOSURE</span>
-          <span class="policy-status">LINK DETECTED</span>
-        </div>
-        <div id="policy-url-display" class="policy-url">Scanning page DOM...</div>
-        <button id="audit-policy-btn" class="audit-btn">
-          <span>Run Policy Reality Gap Audit</span>
-          <span>↗</span>
-        </button>
-      </div>
-      <div class="section-heading">
-        <h3>Stated Policy vs Real Behavior</h3>
-      </div>
-      <div id="gap-findings-list" class="gap-findings-list"></div>
-    </section>
-
-    <!-- PANEL 5: COPILOT CHAT -->
-    <section id="panel-copilot" class="tab-panel">
-      <div class="copilot-container">
-        <div id="copilot-chat" class="copilot-chat">
-          <div class="chat-msg assistant">
-            Hello! I am the <strong>PRIVACYLENS Copilot</strong>. I answer technical and legal questions using observable network events, cookies, and extracted policy clauses.
-          </div>
-        </div>
-        <div class="quick-prompts">
-          <button class="prompt-chip" data-q="Why is this site grade D?">Why Grade?</button>
-          <button class="prompt-chip" data-q="Are session recorders active?">Session Replay?</button>
-          <button class="prompt-chip" data-q="Is Meta Facebook tracking active?">Facebook Pixel?</button>
-        </div>
-        <form id="copilot-form" class="copilot-form">
-          <input type="text" id="copilot-input" placeholder="Ask about trackers, cookies, policy..." class="copilot-input">
-          <button type="submit" class="copilot-send-btn">Send</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- PANEL 6: VAULT (COOKIES & STORAGE) -->
-    <section id="panel-vault" class="tab-panel">
-      <div class="section-heading">
-        <h3>Cookie Security Inspection</h3>
-        <span id="vault-cookie-count">0 cookies</span>
-      </div>
-      <div id="vault-cookies" class="vault-list"></div>
-
-      <div class="section-heading" style="margin-top: 14px;">
-        <h3>LocalStorage Identifiers</h3>
-        <span id="vault-storage-count">0 keys</span>
-      </div>
-      <div id="vault-storage" class="vault-list"></div>
-    </section>
+    <!-- Activity Status Footer -->
+    <div class="activity">
+      <span class="activity-dot"></span>
+      <span id="status-activity-text">Privacy protection active. Everything stays on your device.</span>
+      <svg viewBox="0 0 24 24"><path d="m13 2-8 12h6l-1 8 9-13h-7Z"/></svg>
+    </div>
   </main>
 
+  <!-- Settings View -->
+  <section id="settings-panel" hidden>
+    <div class="settings-heading">
+      <button id="back" class="icon-button" aria-label="Back to dashboard">←</button>
+      <h1>Privacy Settings</h1>
+    </div>
+    <div class="setting-row">
+      <div>
+        <h3>Tracker Guard</h3>
+        <p>Block marketing trackers and screen recorders from loading</p>
+      </div>
+      <button id="guard-switch" class="switch" role="switch" aria-checked="false"><span></span></button>
+    </div>
+    <div class="setting-row">
+      <div>
+        <h3>Private Link Cleaner</h3>
+        <p>Automatically remove personal tags and IDs from web addresses</p>
+      </div>
+      <button id="sanitize-switch" class="switch" role="switch" aria-checked="true" disabled><span></span></button>
+    </div>
+    <div class="setting-row">
+      <div>
+        <h3>Check Privacy Policy</h3>
+        <p>Compare website claims against what they actually do</p>
+      </div>
+      <button id="run-policy-audit" class="small-button">Check ↗</button>
+    </div>
+    <div class="setting-row">
+      <div>
+        <h3>Clear Scan History</h3>
+        <p>Reset recorded privacy data for this website</p>
+      </div>
+      <button id="reset" class="small-button">Reset</button>
+    </div>
+    <p class="settings-note">
+      PRIVACYLENS · Evidence-Based Privacy Intelligence<br>
+      Your browsing data never leaves your computer. 100% private.
+    </p>
+  </section>
+
   <!-- Footer -->
-  <footer class="footer">
-    <span class="footer-brand">PRIVACYLENS</span>
-    <span class="footer-tag">LOCAL-FIRST SANDBOX <span>↗</span></span>
+  <footer>
+    <span class="footer-brand">PRIVACYLENS CLUB</span>
+    <span>SEE WHAT WEBSITES DON&apos;T TELL YOU <span class="footer-arrow">↗</span></span>
   </footer>
 
-  <!-- Toast Alert -->
+  <!-- Toast Notification -->
   <div id="toast" role="status" aria-live="polite"></div>
 </div>
+
 <script src="popup.js"></script>
 </body>
 </html>
-

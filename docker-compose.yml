@@ -1,6 +1,38 @@
 version: '3.8'
 
 services:
+  # Cognitive AI Layer: Gemma 4 Policy Intelligence
+  gemma4:
+    image: ollama/ollama:latest
+    container_name: privacylens-gemma4
+    ports:
+      - "11434:11434"
+    volumes:
+      - gemma4-models:/root/.ollama
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  # Independent Network Auditor: Zeek Network Security Monitor
+  zeek:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.zeek
+    container_name: privacylens-zeek
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    volumes:
+      - zeek-logs:/usr/local/zeek/logs
+    restart: unless-stopped
+
+  # FastAPI Intelligence & Telemetry Backend
   api:
     build:
       context: .
@@ -9,12 +41,19 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=sqlite:///./privacylens.db
+      - DATABASE_URL=sqlite:///./data/privacylens.db
       - ENVIRONMENT=production
+      - GEMMA4_HOST=http://gemma4:11434
+      - GEMMA4_MODEL=gemma4:9b
+      - ZEEK_LOG_PATH=/zeek/logs/privacylens_audit.log
     volumes:
       - api-data:/app/data
+      - zeek-logs:/zeek/logs:ro
+    depends_on:
+      - gemma4
     restart: unless-stopped
 
+  # Companion Next.js 14 Dashboard
   dashboard:
     build:
       context: .
@@ -30,4 +69,5 @@ services:
 
 volumes:
   api-data:
-
+  gemma4-models:
+  zeek-logs:
