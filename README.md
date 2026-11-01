@@ -11,6 +11,8 @@
 
 <div align="center">
 
+[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-Vercel-black?logo=vercel&logoColor=white)](https://privacylens-dashboard.vercel.app)
+[![Download Extension](https://img.shields.io/badge/Extension%20ZIP-Download%20Ready-success.svg)](https://github.com/AryanMohite0/PrivacyLens/raw/main/privacylens-extension.zip)
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
 [![Manifest V3](https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-blue.svg)](privacylens-extension)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688.svg)](apps/api)
@@ -209,6 +211,10 @@ uvicorn apps.api.app.main:app --reload --port 8000
 API Documentation is live at: `http://localhost:8000/docs`
 
 ### 4. Running the Web Intelligence Dashboard
+The companion dashboard is deployed live on Vercel:
+👉 **[https://privacylens-dashboard.vercel.app](https://privacylens-dashboard.vercel.app)**
+
+To run it locally:
 ```bash
 npm --workspace=@privacylens/dashboard run start -- -p 3001
 ```

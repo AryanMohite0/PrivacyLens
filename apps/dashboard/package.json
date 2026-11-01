@@ -8,7 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@privacylens/shared": "*",
     "@xyflow/react": "^12.3.6",
     "clsx": "^2.1.1",
     "lucide-react": "^0.460.0",

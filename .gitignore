@@ -54,3 +54,5 @@ yarn-error.log*
 
 0.26.0
 
+.vercel
+.env*
