@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 68" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aboutBarGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#141e18" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#1b2a22" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#101713" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="aboutNeonLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0">
+        <animate attributeName="stop-opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#d1fb58" stop-opacity="1" />
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0">
+        <animate attributeName="stop-opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient id="aboutTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="70%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#d1fb58" />
+    </linearGradient>
+
+    <style>
+      .about-pulse {
+        animation: pulseAbout 2s ease-in-out infinite;
+      }
+      .laser-scan-about {
+        animation: scanAbout 4.5s ease-in-out infinite;
+      }
+      @keyframes pulseAbout {
+        0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #d1fb58); }
+        50% { transform: scale(1.1); filter: drop-shadow(0 0 6px #d1fb58); }
+      }
+      @keyframes scanAbout {
+        0% { transform: translateX(-400px); opacity: 0; }
+        20% { opacity: 0.9; }
+        80% { opacity: 0.9; }
+        100% { transform: translateX(900px); opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="896" height="64" rx="10" fill="url(#aboutBarGlow)" stroke="#22362b" stroke-width="1.2" />
+  <line x1="12" y1="65" x2="888" y2="65" stroke="url(#aboutNeonLine)" stroke-width="2" />
+
+  <g class="laser-scan-about">
+    <circle cx="0" cy="65" r="4" fill="#d1fb58" />
+  </g>
+
+  <!-- Left Icon: Compass / Eye Lens -->
+  <g transform="translate(24, 18)" class="about-pulse">
+    <circle cx="16" cy="16" r="16" fill="#18271e" stroke="#d1fb58" stroke-width="1.5" />
+    <circle cx="16" cy="16" r="7" fill="none" stroke="#d1fb58" stroke-width="1.4" />
+    <circle cx="16" cy="16" r="2.5" fill="#d1fb58" />
+    <line x1="16" y1="4" x2="16" y2="9" stroke="#d1fb58" stroke-width="1.2" />
+    <line x1="16" y1="23" x2="16" y2="28" stroke="#d1fb58" stroke-width="1.2" />
+    <line x1="4" y1="16" x2="9" y2="16" stroke="#d1fb58" stroke-width="1.2" />
+    <line x1="23" y1="16" x2="28" y2="16" stroke="#d1fb58" stroke-width="1.2" />
+  </g>
+
+  <!-- Heading Text -->
+  <text x="74" y="32" font-family="'Georgia', serif" font-size="20" font-weight="900" fill="url(#aboutTextGrad)" letter-spacing="0.8">
+    ABOUT PRIVACYLENS
+  </text>
+  <text x="74" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="600" fill="#94a3b8" letter-spacing="0.4">
+    SEE WHAT WEBSITES DON'T TELL YOU // EMPIRICAL EVIDENCE MEETS LEGAL DISCLOSURE
+  </text>
+
+  <!-- Right Status Badge -->
+  <g transform="translate(740, 20)">
+    <rect x="0" y="0" width="138" height="26" rx="6" fill="#131c17" stroke="#324a3a" stroke-width="1" />
+    <circle cx="12" cy="13" r="3.5" fill="#d1fb58">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+    </circle>
+    <text x="22" y="17" fill="#d1fb58" font-family="-apple-system, sans-serif" font-size="10.5" font-weight="800" letter-spacing="0.6">MISSION ACTIVE</text>
+  </g>
+</svg>

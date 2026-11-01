@@ -22,23 +22,62 @@
 
 ---
 
+<div align="center">
+  <img src="docs/assets/about_project_heading.svg" width="100%" alt="About PrivacyLens" />
+</div>
+<br/>
+
+Modern web privacy operates on a deceptive premise known as the **"Notice and Consent" illusion**. Websites present users with lengthy, ambiguous privacy policies crafted by legal teams, followed by opaque cookie banners where clicking "Accept All" is the path of least resistance. 
+
+Yet the most critical vulnerability is not the complexity of privacy policies—**it is that no consumer tool checks whether websites actually practice what they preach**.
+
+Traditional privacy protections fall into two inadequate paradigms:
+1. **Static Blocklists (EasyList, AdGuard)**: Rely on human-curated domain rules that fail against modern evasion tactics, such as **CNAME cloaking**, first-party reverse proxies, in-memory DOM session replays (Microsoft Clarity, FullStory, Hotjar), and persistent browser fingerprinting.
+2. **Generic LLM Summarizers**: Summarize privacy policy text in isolation, taking legal promises at face value while remaining completely blind to the actual network packets leaving the user's browser.
+
+**PrivacyLens bridges the Privacy Reality Gap.**
+
+By uniting real-time browser network inspection, wire-level protocol auditing via **Zeek**, evasive tracking graph analysis via **Spatio-Temporal Graph Neural Networks (STGNN)**, and legal policy reasoning via **Gemma 4**, PrivacyLens compares a website's **actual technical behavior** against its **stated legal commitments**—empowering users with mathematical safety scores, verbatim contradiction evidence, and one-click active defense.
+
+| Core Pillar | Technical Foundation | Capability | Consumer Impact |
+| :--- | :--- | :--- | :--- |
+| **Client Telemetry & Defense** | Chrome MV3 + `declarativeNetRequest` | Intercepts passive network metadata & enforces active blocking | Instant, layout-safe neutralization of third-party trackers |
+| **DOM Session Disarmer** | Isolated World Script Execution | Detects & neutralizes in-memory session recorders | Prevents keystroke logging, mouse tracking, and form scraping |
+| **Wire Protocol Auditing** | Zeek Network Wire Log Parser | Analyzes DNS, HTTP, and TLS handshakes | Exposes CNAME cloaking and uncloaked IP data exfiltration |
+| **Evasive Graph AI** | Spatio-Temporal Graph Neural Net (STGNN) | Multi-hop exfiltration path modeling | Uncovers stealth tracking chains that bypass static filter lists |
+| **Policy Intelligence & Copilot** | Fine-tuned Gemma 4 (SLM) | Structured JSON claim extraction & evidence-grounded chat | Verifiable legal contradiction alerts and plain-English answers |
+
+---
+
 ## Visual Showcase
 
-### Live In-Browser Telemetry & Inspection
+### Live In-Browser Telemetry & Protocol Inspection
 <div align="center">
   <img src="docs/assets/live_extension_inspection.jpg" width="100%" alt="PrivacyLens Live In-Browser Telemetry & Inspection" />
-  <p><em>Live PrivacyLens inspector running in Google Chrome — observing background network traffic, evaluating third-party tracking, and updating the dynamic Privacy Safety Score in real-time.</em></p>
+  <p><em>Full-suite in-browser diagnostic: PrivacyLens running inside Google Chrome on <code>store.nike.com</code>, actively monitoring background network flows, assessing tracker risk, and computing the dynamic Privacy Safety Score.</em></p>
 </div>
 <br/>
 
+### Real-World Tracker Detection & Live Scoring
 <div align="center">
-  <img src="docs/assets/preview_consumer_cards.png" width="48%" alt="PrivacyLens Consumer Cards" />
-  <img src="docs/assets/screenshot_recorder_blocked.png" width="48%" alt="Recorder Neutralization" />
+  <img src="docs/assets/privacy_lens_popup_live.png" width="48%" alt="Live Protection on Lovable.dev (Score 84, Ad Tracker Detected)" />
+  <img src="docs/assets/preview_consumer_cards.png" width="48%" alt="PrivacyLens High-Risk Telemetry Cards" />
 </div>
+<p align="center"><em>(Left) Real-world live protection on <code>lovable.dev</code> detecting 58 background activities and active ad retargeting; (Right) High-risk telemetry feed with one-click Guard actions.</em></p>
 <br/>
+
+### Active Disarming & Dynamic Score Recovery
 <div align="center">
-  <img src="docs/assets/preview_consumer_copilot.png" width="48%" alt="Plain-English Evidence Copilot" />
+  <img src="docs/assets/screenshot_recorder_blocked.png" width="48%" alt="Recorder Neutralization" />
   <img src="docs/assets/verify_scoring_100.png" width="48%" alt="Dynamic 100% Privacy Protection" />
+</div>
+<p align="center"><em>(Left) Neutralizing invasive DOM session recorders; (Right) Dynamic score calibration instantly restoring safety score to 100% (Grade A) when all tracking threats are blocked.</em></p>
+<br/>
+
+### Grounded Evidence Copilot
+<div align="center">
+  <img src="docs/assets/preview_consumer_copilot.png" width="55%" alt="Plain-English Evidence Copilot" />
+  <p><em>Conversational AI Copilot powered by Gemma 4 providing exact, line-cited legal policy evidence for every detected tracker with zero hallucination.</em></p>
 </div>
 
 ---
